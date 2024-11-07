@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postegre
+  name: postgre
 spec:
   selector:
     matchLabels:
@@ -10,11 +10,11 @@ spec:
   template:
     metadata:
       labels:
-        app: postegre
+        app: postgre
     spec:
       containers:
-      - name: postegre
-        image: postegres:13.16
+      - name: postgre
+        image: postgres:13.16
         ports:
           - containerPort: 5432
         env:
@@ -28,10 +28,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: postegre
+  name: postgre
 spec:
   selector:
-    app: postegre
+    app: postgre
   ports:
   - port: 5432
     targetPort: 5432
