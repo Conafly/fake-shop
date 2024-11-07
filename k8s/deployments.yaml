@@ -16,7 +16,7 @@ spec:
       - name: postgre
         image: postgres:13.16
         ports:
-          - containerPort: 5432
+        - containerPort: 5432
         env:
           - name: POSTGRES_DB
             value: fakeshop
@@ -55,13 +55,13 @@ spec:
       - name: fakeshop
         image: conafly/fake-shop:v1
         ports:
-          - containerPort: 5000
+        - containerPort: 5000
         env:
           - name: DB_HOST
             value: postgre
           - name: DB_USER
             value: fakeshop
-          - name: DB_PASSWROD
+          - name: DB_PASSWORD
             value: Pg1234
           - name: DB_NAME
             value: fakeshop
@@ -76,6 +76,6 @@ spec:
   selector:
     app: fakeshop
   ports:
-  - port: 80
-    targetPort: 5000
+    - port: 80
+      targetPort: 5000
   type: LoadBalancer
