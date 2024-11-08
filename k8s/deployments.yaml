@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
       - name: fakeshop
-        image: conafly/fake-shop:v1
+        image: conafly/fake-shop
         ports:
         - containerPort: 5000
         env:
